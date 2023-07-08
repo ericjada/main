@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JavaScript Strings</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="/home/eric/repos/git_test/howto-javascript/JavaScript/styles.css"
+    />
+  </head>
+  <body>
+    <!-- <script src="" async defer></script> -->
+
+    <!-- Basics of strings -->
+
+    <div class="container">
+      <div class="head">Basics of strings</div>
+      <div class="subhead">As part of The Odin Project</div>
+      <div class="body">
+        I followed along to
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings"
+          >this article</a
+        >
+      </div>
+    </div>
+    <br />
+    <script>
+      const string = "The revolution will not be televised.";
+      console.log(string);
+    </script>
+
+    <!-- These lines don't work because any text without quotes around it is assumed to be a variable name, property name, a reserved word, or similar. If the browser can't find it, then an error is raised (e.g. "missing; before statement"). 
+        <script>
+      const badString1 = This is a test;
+      const badString2 = 'This is a test;
+      const badString3 = This is a test';
+    </script> -->
+
+    <!-- The following will work if you previously defined the variable -->
+    <script>
+      const badString = string;
+      console.log(badString);
+      //   badString is now set to have the same value as string.
+    </script>
+
+    <!-- In JavaScript, you can choose single quotes or double quotes to wrap your strings in. Both of the following will work okay: -->
+    <script>
+      const sgl = "Single quotes.";
+      const dbl = "Double quotes";
+      console.log(sgl);
+      console.log(dbl);
+    </script>
+
+    <!-- Choose one and stick to it, however; differently quoted code can be confusing, especially if you use two different quotes on the same string! -->
+
+    <script>
+      // The following will return an error
+          const badQuotes = 'What on earth?";
+          console.log(badQuotes)
+    </script>
+    <script>
+      const sglDbl = 'Would you eat a "fish supper"?';
+      const dblSgl = "I'm feeling blue.";
+      console.log(sglDbl);
+      console.log(dblSgl);
+    </script>
+    <script>
+      // you can't include the same quote mark inside the string if it's being used to contain them.
+      // The following will error, as it confuses the browser as to where the string ends.
+        const bigmouth = 'I've got no right to take my place…';
+        console.log(bigmouth)
+    </script>
+
+    <!-- To fix our previous problem code line, we need to escape the problem quote mark. -->
+
+    <!-- Escaping characters means that we do something to them to make sure they are recognized as text, 
+        not part of the code. In JavaScript, we do this by putting a backslash just before the character. -->
+
+    <script>
+      const bigmouth = "I've got no right to take my place…";
+      console.log(bigmouth);
+    </script>
+
+    <!-- Concatenating strings -->
+    <!-- Concatenate just means "join together". 
+    To join together strings in JavaScript you can use a different type of string, 
+    called a template literal. -->
+
+    <!-- A template literal looks just like a normal string, 
+        but instead of using single or double quote marks (' or "), 
+        you use backtick characters (`): -->
+
+    <script>
+      const greeting = `Hello`;
+      console.log(greeting);
+    </script>
+
+    <!-- This can work just like a normal string, except you can include variables in it, 
+    wrapped inside ${ } characters, and the variable's value will be inserted into the result -->
+
+    <script>
+      const name = "Eric";
+      const greetingFull = `Hello, ${name}`;
+      console.log(greetingFull);
+    </script>
+
+    <!-- You can use the same technique to join together two variables: -->
+
+    <script>
+      const one = "Hello ";
+      const two = ", how are you?";
+      const joined = `${one}${name}${two}`;
+      console.log(joined);
+    </script>
+
+    <!-- Let's have a look at concatenation being used in action: -->
+
+    <button>Press me</button>
+
+    <script>
+      const button = document.querySelector("button");
+
+      function greet() {
+        const name = prompt("What is your name?");
+        alert(`Hello ${name}, nice to see you!`);
+      }
+
+      button.addEventListener("click", greet);
+    </script>
+
+    <!-- Here we're using the window.prompt() function, 
+    which asks the user to answer a question via a popup dialog box 
+    then stores the text they enter inside a given variable — in this case name. 
+    We then use the window.alert() function to display another popup containing a 
+    string which inserts the name into a generic greeting message. -->
+
+    <!-- You can also concatenate strings using the + operator -->
+
+    <script>
+      const greetingEnd = "I hope you have a great rest of your day!";
+      console.log(joined + " " + greetingEnd);
+    </script>
+
+    <!-- Numbers vs. strings -->
+    <!-- So what happens when we try to combine a string and a number? Let's try it in our console -->
+
+    <script>
+      const front = "Front ";
+      const number = 242;
+      console.log(`${front}${number}`); // "Front 242"
+    </script>
+
+    <!-- the browser converts the number to a string and concatenates the two strings. -->
+
+    <!-- The Number() function converts anything passed to it into a number, if it can. -->
+
+    <script>
+      const myString = "123";
+      const myNum = Number(myString);
+      console.log(typeof myNum);
+    </script>
+
+    <!-- every number has a method called toString() that converts it to the equivalent string. -->
+
+    <script>
+      const myNum2 = 123;
+      const myString2 = myNum2.toString();
+      console.log(typeof myString2);
+    </script>
+
+    <!-- For example, if a user enters a number into a form's text field, it's a string. 
+    However, if you want to add this number to something, you'll need it to be a number, 
+    so you could pass it through Number() to handle this. -->
+
+    <!-- You can include JavaScript expressions in template literals, as well as simple variables, 
+        and the results will be included in the result -->
+
+    <script>
+      const song = "Fight the Youth";
+      const score = 9;
+      const highestScore = 10;
+      const output = `I like the song ${song}. I gave it a score of ${
+        (score / highestScore) * 100
+      }%.`;
+      console.log(output);
+    </script>
+
+    <!-- Multiline strings -->
+    <!-- Template literals respect the line breaks in the source code, so you can write strings that span multiple lines like this -->
+
+    <script>
+      const output2 = `I like the song.
+I gave it a score of 90%.`;
+      console.log(output2);
+
+      /*
+I like the song.
+I gave it a score of 90%.
+*/
+    </script>
+
+    <!-- To have the equivalent output using a normal string you'd have to include line break characters (\n) in the string -->
+
+    <script>
+      const output3 = "I like the song.\nI gave it a score of 90%.";
+      console.log(output3);
+
+      /*
+I like the song.
+I gave it a score of 90%.
+*/
+    </script>
+  </body>
+</html>

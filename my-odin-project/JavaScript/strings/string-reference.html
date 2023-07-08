@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>JavaScript Strings</h1>
+
+    <p>Strings are written inside single or double quotes:</p>
+
+    <p id="demo"></p>
+
+    <!-- I have an extension that auto corrects such things on save -->
+    <script>
+      let carName1 = "Volvo XC60"; // Double quotes
+      let carName2 = "Volvo XC60"; // Single quotes
+
+      document.getElementById("demo").innerHTML = carName1 + " " + carName2;
+    </script>
+
+    <h1>JavaScript Typed Arrays</h1>
+    <h2>The Int8Array Object</h2>
+
+    <p id="demo2"></p>
+
+    <script>
+      const myArr = new Int8Array(10);
+      document.getElementById("demo2").innerHTML = myArr;
+    </script>
+
+    <!-- The Console Object
+  The console object provides access to the browser's debugging console.
+  The console object is a property of the window object.
+  The console object is accessed with:
+  window.console or just console -->
+
+    <h1>The Console Object</h1>
+    <h2>The error() Method</h2>
+    <p>Remember to open the console (Press F12) before you click "Run".</p>
+
+    <script>
+      window.console.error("You made a mistake");
+    </script>
+
+    <!-- OR -->
+
+    <script>
+      console.error("You made a mistake");
+    </script>
+
+    <!-- The Window History Object
+  The history object contains the URLs visited by the user (in the browser window).
+  The history object is a property of the window object. 
+  The history object is accessed with:
+  window.history or just history: -->
+
+    <h1>The Window History Object</h1>
+    <h2>The history.length Property</h2>
+
+    <p>Number of URLs in history list:</p>
+    <p id="demo3"></p>
+
+    <p>
+      Since this is a new window frame, history.length will always return 1.
+    </p>
+
+    <script>
+      let length = history.length;
+      document.getElementById("demo3").innerHTML = length;
+    </script>
+
+    <!-- OR -->
+
+    <!-- <script>
+      let length2 = window.history.length;
+      document.getElementById("demo3").innerHTML = length;
+    </script> -->
+
+    <!-- The Window Location Object
+  The location object contains information about the current URL.
+  The location object is a property of the window object.
+  The location object is accessed with:
+  window.location or just location -->
+
+    <h1>The Window Location Object</h1>
+    <h2>The origin Property</h2>
+
+    <p id="demo4"></p>
+
+    <script>
+      let origin = window.location.origin;
+      document.getElementById("demo4").innerHTML = origin;
+    </script>
+    <!-- OR   -->
+
+    <!-- <script>
+let origin2 = location.origin;
+document.getElementById("demo5").innerHTML = origin;
+</script> -->
+
+    <!-- The Window Navigator Object
+The navigator object contains information about the browser.
+The navigator object is a property of the window object.
+The navigator object is accessed with:
+window.navigator or just navigator: -->
+
+    <h1>The Window Navigator Object</h1>
+    <h2>The The language Property</h2>
+
+    <p id="demo5"></p>
+
+    <script>
+      let language = window.navigator.language;
+      document.getElementById("demo5").innerHTML =
+        "Browser language: " + language;
+    </script>
+
+    <!-- OR -->
+
+    <!-- <script>
+    let language2 = navigator.language;
+    document.getElementById("demo").innerHTML = "Browser language: " + language;
+    </script> -->
+
+    <!-- The Window Screen Object
+    The screen object contains information about the visitor's screen. -->
+
+    <!-- The Document Object
+    When an HTML document is loaded into a web browser, it becomes a document object.
+    The document object is the root node of the HTML document.
+    The document object is a property of the window object.
+    The document object is accessed with:
+    window.document or just document -->
+
+    <h1>Window Document Object</h1>
+    <h2>The URL Property</h2>
+
+    <p id="demo6"></p>
+
+    <script>
+      let url = window.document.URL;
+      document.getElementById("demo6").innerHTML = url;
+    </script>
+
+    <!-- OR -->
+
+    <!-- <script>
+    let url = document.URL;
+    document.getElementById("demo").innerHTML = url;
+    </script> -->
+
+    <!-- The Element Object
+    In the HTML DOM, the Element object represents an HTML element, like P, DIV, A, TABLE, or any other HTML element. -->
+
+    <!-- The Attr Object
+    In the HTML DOM, an Attr object represents an HTML attribute.
+    An HTML attribute always belongs to an HTML element.
+    NamedNodeMap
+    A NamedNodeMap is an array-like unordered collection of an element's attributes.
+    In other words: a NamedNodeMap is a list of Attr objects.
+    A NamedNodeMap has a length property that returns the number of nodes.
+    The nodes can be accessed by name or index numbers. The index starts at 0. -->
+
+    <!-- HTMLCollection
+    An HTMLCollection is an array-like collection (list) of HTML elements.
+    The elements in a collection can be accessed by index (starts at 0).
+    The length Property returns the number of elements in the collection.
+    
+    HTMLCollection vs NodeList
+    An HTMLCollection is almost the same as a NodeList.
+    
+    WHO Returns an HTMLCollection?
+    The getElementsByTagName() Method
+    The getElementsByClassName() Method
+    The children Property -->
+
+    <!-- Get all parapgraphs: -->
+    <h1>The HTMLCollection Object</h1>
+
+    <p>The getElementsByTagName() returns:</p>
+    <p id="demo7"></p>
+
+    <script>
+      const elements = document.getElementsByTagName("p");
+      document.getElementById("demo7").innerHTML = elements;
+    </script>
+
+    <!-- The number of <p> elements in the document are: -->
+    <h1>The HTMLCollection Object</h1>
+    <h2>The length Property</h2>
+
+    <p>The number of paragraphs (p elements) are:</p>
+    <p id="demo8"></p>
+
+    <script>
+      const elements2 = document.getElementsByTagName("p");
+      document.getElementById("demo8").innerHTML = elements.length;
+    </script>
+
+    <!-- Loop over the elements in an HTMLCollection: -->
+
+    <h1>The HTMLCollection Object</h1>
+    <h2>The length Property</h2>
+
+    <p>The tags in this document are:</p>
+    <p id="demo9"></p>
+
+    <script>
+      const elements3 = document.getElementsByTagName("*");
+      let text = "";
+      for (let i = 0; i < elements.length; i++) {
+        text += elements[i].tagName + "<br>";
+      }
+      document.getElementById("demo9").innerHTML = text;
+    </script>
+
+    <!-- Not an Array
+An HTMLCollection is not an Array!
+An HTMLCollection may look like an array, but it is not.
+You can loop through an HTMLCollection and refer to its elements with an index.
+But you cannot use Array methods like push(), pop(), or join() on an HTMLCollection. -->
+
+    <!-- NodeList
+A NodeList is an array-like collection (list) of Node Objects.
+The nodes in a NodeList can be accessed by index (starts at 0).
+The length property returns the number of nodes in a NodeList.
+
+NodeList vs. HTMLCollection
+A NodeList is almost the same as an HTMLCollection. -->
+
+    <!-- Who Returns a NodeList?
+The childNodes() Method
+The querySelectorAll() Method
+The getElementsByName() Method -->
+
+    <!-- Select all <p> nodes in a document: -->
+    <!-- The elements in the NodeList can be accessed by an index number. -->
+
+    <h1>HTML DOM NodeList</h1>
+
+    <p>Hello World!</p>
+
+    <p id="demo10"></p>
+
+    <script>
+      const myNodelist = document.querySelectorAll("p");
+
+      document.getElementById("demo10").innerHTML =
+        "The innerHTML of the second paragraph is: " + myNodelist[1].innerHTML;
+    </script>
+
+    <!-- Note: The index starts at 0. -->
+
+    <!-- HTML DOM Node List Length
+The length property defines the number of nodes in a node list: -->
+
+    <h1>HTML DOM NodeList</h1>
+
+    <p>Hello World!</p>
+    <p id="demo11"></p>
+
+    <script>
+      const myNodelist2 = document.querySelectorAll("p");
+      document.getElementById("demo11").innerHTML =
+        "This document contains " + myNodelist.length + " paragraphs.";
+    </script>
+
+    <!-- The length property is useful when you want to loop through the nodes in a node list: -->
+
+    <!-- Change the color of all <p> elements in a node list: -->
+
+    <h2>JavaScript HTML DOM</h2>
+
+    <p>Hello World!</p>
+
+    <p>Hello Norway!</p>
+
+    <p>Click the button to change the color of all p elements.</p>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <script>
+      function myFunction() {
+        const myNodelist3 = document.querySelectorAll("p");
+        for (let i = 0; i < myNodelist3.length; i++) {
+          myNodelist3[i].style.color = "purple";
+        }
+      }
+    </script>
+
+    <!-- Not an Array
+  A NodeList is not an Array!
+  A NodeList may look like an array, but it is not.
+  You can loop through a NodeList and refer to its nodes with an index.
+  But you cannot use Array methods like push(), pop(), or join() on a NodeList. -->
+
+    <!-- DOMTokenList
+A DOMTokenList is a set of space separated tokens.
+A DOMTokenList can be accessed by index (starts at 0).
+The length Property returns the number of tokens in a DOMTokenList.
+
+Note
+The The classList Property of an HTML element represents a DOMTokenList. -->
+
+    <!-- Add a "myStyle" class to an element: -->
+
+    <style>
+      .myStyle {
+        background-color: coral;
+        padding: 16px;
+      }
+    </style>
+
+    <h1>The DOMToken Object</h1>
+    <h2>The add() Method</h2>
+
+    <button onclick="myFunction()">Add</button>
+    <p>Click "Add" to add the "myStyle" class to myDIV.</p>
+
+    <div id="myDIV">
+      <p>I am a myDIV.</p>
+    </div>
+
+    <script>
+      function myFunction() {
+        const list = document.getElementById("myDIV").classList;
+        list.add("myStyle");
+      }
+    </script>
+
+    <!-- Remove the "myStyle" class from an element: -->
+
+    <style>
+      .myStyle2 {
+        background-color: coral;
+        padding: 16px;
+      }
+    </style>
+
+    <h1>The DOMToken Object</h1>
+    <h2>The remove() Method</h2>
+
+    <button onclick="myFunction2()">Remove</button>
+    <p>Click "Remove" to remove the "myStyle" class from myDIV2.</p>
+
+    <div id="myDIV2" class="myStyle2">
+      <p>I am myDIV2.</p>
+    </div>
+
+    <script>
+      function myFunction2() {
+        document.getElementById("myDIV2").classList.remove("myStyle2");
+      }
+    </script>
+
+    <!-- Toggle "myStyle" on and off: -->
+
+    <style>
+      .myStyle3 {
+        background-color: coral;
+        padding: 16px;
+      }
+    </style>
+
+    <h1>The DOMToken Object</h1>
+    <h2>The toggle() Method</h2>
+
+    <button onclick="myFunction3()">Toggle</button>
+    <p>Click "Toggle" to toggle "myStyle" on and off.</p>
+
+    <div id="myDIV3">
+      <p>I am myDIV3.</p>
+    </div>
+
+    <script>
+      function myFunction3() {
+        document.getElementById("myDIV3").classList.toggle("myStyle3");
+      }
+    </script>
+
+    <!-- Not an Array
+  A DOMTokenList is not an Array!
+  A DOMTokenList may look like an array, but it is not.
+  You can loop through a DOMTokenList and refer to its token with an index.
+  But you cannot use Array methods like push(), pop(), or join() on a DOMTokenList. -->
+
+    <!-- Add multiple classes to the an element: -->
+
+    <style>
+      .myStyle4 {
+        background-color: coral;
+        padding: 16px;
+      }
+      .anotherClass {
+        text-align: center;
+        font-size: 25px;
+      }
+      .thirdClass {
+        text-transform: uppercase;
+      }
+    </style>
+
+    <h1>The DOMToken Object</h1>
+    <h2>The add() Method</h2>
+
+    <button onclick="myFunction4()">Add</button>
+    <p>Click "Add" to add multiple classes to myDIV4.</p>
+
+    <div id="myDIV4">
+      <p>I am myDIV4.</p>
+    </div>
+
+    <script>
+      function myFunction4() {
+        document
+          .getElementById("myDIV4")
+          .classList.add("myStyle4", "anotherClass", "thirdClass");
+      }
+    </script>
+  </body>
+</html>

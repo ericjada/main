@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Functions Assignment</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" href=""> -->
+  </head>
+  <body>
+    <!-- <script src="" async defer></script> -->
+
+    <h1>
+      This is me following along to
+      <a
+        href="https://www.theodinproject.com/lessons/foundations-fundamentals-part-3"
+        >this</a
+      >
+      assignment.
+    </h1>
+
+    <!-- Write each function and test the output with console.log -->
+
+    <!-- Write a function called add7 that takes one number and returns that number + 7. -->
+
+    <script>
+      function add7() {
+        var number = parseInt(prompt("Enter a number:"));
+        var result = number + 7;
+        console.log(result);
+        alert(result);
+      }
+      // Call the function
+      //   add7();
+    </script>
+
+    <!-- Write a function called multiply that takes 2 numbers and returns their product. -->
+
+    <script>
+      function multiply(number1, number2) {
+        return number1 * number2;
+      }
+      var result2 = multiply(5, 7);
+      console.log(result2); // Output: 35
+    </script>
+
+    <!-- Write a function called capitalize that takes a string and returns that string with only the first letter capitalized. Make sure that it can take strings that are lowercase, UPPERCASE or BoTh. -->
+
+    <script>
+      function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+      }
+      // Here's an example usage of the capitalize function:
+      console.log(capitalize("hello")); // Output: "Hello"
+      console.log(capitalize("WORLD")); // Output: "World"
+      console.log(capitalize("JaVaScRiPt")); // Output: "Javascript"
+      console.log(capitalize("tEST")); // Output: "Test"
+    </script>
+
+    <!-- Write a function called lastLetter that takes a string and returns the very last letter of that string:
+lastLetter("abcd") should return "d" -->
+
+    <script>
+      function lastLetter(str) {
+        return str.charAt(str.length - 1);
+      }
+      // Here's an example usage of the lastLetter function:
+      console.log(lastLetter("abcd")); // Output: "d"
+      console.log(lastLetter("Hello")); // Output: "o"
+      console.log(lastLetter("JavaScript")); // Output: "t"
+    </script>
+  </body>
+</html>

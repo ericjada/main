@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Conditional Statements</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" href=""> -->
+  </head>
+  <body>
+    <!-- <script src="" async defer></script> -->
+
+    <h1>
+      This is me following along with
+      <a href="https://www.w3schools.com/js/js_if_else.asp">this</a> article.
+    </h1>
+
+    <!-- In JavaScript we have the following conditional statements -->
+
+    <!-- The if Statement -->
+
+    <!-- Syntax -->
+
+    <!-- if (condition) {
+        //  block of code to be executed if the condition is true
+      } -->
+
+    <!-- Note that if is in lowercase letters. Uppercase letters (If or IF) will generate a JavaScript error. -->
+
+    <h2>JavaScript if</h2>
+
+    <p>Display "Good day!" if the hour is less than 18:00:</p>
+
+    <p id="demo">Good Evening!</p>
+
+    <script>
+      if (new Date().getHours() < 18) {
+        document.getElementById("demo").innerHTML = "Good day!";
+      }
+    </script>
+
+    <!-- Use the else statement to specify a block of code to be executed if the condition is false. -->
+
+    <h2>JavaScript if .. else</h2>
+
+    <p>A time-based greeting:</p>
+
+    <p id="demo2"></p>
+
+    <script>
+      const hour = new Date().getHours();
+      let greeting;
+
+      if (hour < 18) {
+        greeting = "Good day";
+      } else {
+        greeting = "Good evening";
+      }
+
+      document.getElementById("demo2").innerHTML = greeting;
+    </script>
+
+    <!-- Use the else if statement to specify a new condition if the first condition is false. -->
+
+    <h2>JavaScript if .. else</h2>
+
+    <p>A time-based greeting:</p>
+
+    <p id="demo3"></p>
+
+    <script>
+      const time = new Date().getHours();
+      let greeting2;
+      if (time < 10) {
+        greeting2 = "Good morning";
+      } else if (time < 20) {
+        greeting2 = "Good day";
+      } else {
+        greeting2 = "Good evening";
+      }
+      document.getElementById("demo3").innerHTML = greeting2;
+    </script>
+  </body>
+</html>

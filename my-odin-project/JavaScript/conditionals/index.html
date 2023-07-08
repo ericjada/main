@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Conditionals</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" href=""> -->
+  </head>
+  <body>
+    <script
+      src="/home/eric/github/my-odin-project/JAVA/conditionals/script.js"
+      async
+      defer
+    ></script>
+    <h1>
+      This is mr following along with
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals"
+        >this</a
+      >
+      article.
+    </h1>
+
+    <!-- Basic if...else syntax -->
+
+    <!-- <script>
+      if (condition) {
+        /* code to run if condition is true */
+      } else {
+        /* run some other code instead */
+      }
+    </script> -->
+
+    <!-- To understand this syntax better, let's consider a real example. 
+    Imagine a child being asked for help with a chore by their mother 
+    or father. The parent might say "Hey sweetheart! If you help me by 
+    going and doing the shopping, I'll give you some extra allowance 
+    so you can afford that toy you wanted." In JavaScript, we could 
+    represent this like so:
+ -->
+
+    <script>
+      let shoppingDone = false;
+      let childsAllowance;
+
+      if (shoppingDone === true) {
+        childsAllowance = 10;
+      } else {
+        childsAllowance = 5;
+      }
+    </script>
+
+    <!-- check out the following more involved example, which could be part of a simple weather forecast application: -->
+
+    <label for="weather">Select the weather type today: </label>
+    <select id="weather">
+      <option value="">--Make a choice--</option>
+      <option value="sunny">Sunny</option>
+      <option value="rainy">Rainy</option>
+      <option value="snowing">Snowing</option>
+      <option value="overcast">Overcast</option>
+    </select>
+
+    <!-- Here we've got an HTML <select> element allowing us to make different weather choices, and a simple paragraph.
+        In the JavaScript, we are storing a reference to both the <select> and <p> elements, and adding an event 
+            listener to the <select> element so that when its value is changed, the setWeather() function is run.
+        When this function is run, we first set a variable called choice to the current value selected in the <select> element. 
+            We then use a conditional statement to show different text inside the paragraph depending on what the 
+            value of choice is. Notice how all the conditions are tested in else if () { } blocks, except for the first one, 
+            which is tested in an if () { } block.
+        The very last choice, inside the else { } block, is basically a "last resort" option — the code inside it will 
+        be run if none of the conditions are true. In this case, it serves to empty the text out of the paragraph if 
+        nothing is selected, for example, if a user decides to re-select the "--Make a choice--" placeholder option 
+        shown at the beginning. -->
+  </body>
+</html>

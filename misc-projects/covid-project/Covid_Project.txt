@@ -1,0 +1,28 @@
+COVID-19 Vaccination, Death Analysis and Data Exploration
+
+This project is aimed at analyzing the relationship between COVID-19 vaccination and death rates across different countries and continents. The data used in this project is sourced from the Our World in Data website, and includes information on vaccination and death rates for each country as well as demographic information.
+
+
+Dataset source:
+https://ourworldindata.org/covid-deaths
+
+
+Here are some skills demonstrated in this project:
+
+Data analysis and manipulation using SQL
+Joins and subqueries to combine data from multiple tables
+Window functions for calculating rolling aggregates over time
+Working with views to simplify complex queries
+Basic data visualization using Excel charts
+Writing SQL scripts to automate data extraction and processing
+Using comments to document code and make it more readable
+Troubleshooting and debugging SQL errors
+
+
+Setup
+To run this project, you will need the following:
+
+SQL Server Management Studio (SSMS) or a similar tool to run SQL queries
+The project dataset, which can be downloaded from the Our World in Data website
+A connection to a SQL Server instance to run the queries against
+Once you have set up these requirements, you can run the SQL queries provided in the project to analyze the data and generate insights.

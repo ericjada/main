@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>The "switch" statement</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" href=""> -->
+  </head>
+  <body>
+    <!-- <script src="" async defer></script> -->
+
+    <h1>
+      This is me following along to
+      <a href="https://javascript.info/switch">this</a> article.
+    </h1>
+
+    <!-- A switch statement can replace multiple if checks. -->
+
+    <!-- It gives a more descriptive way to compare a value with multiple variants. -->
+
+    <!-- The switch has one or more case blocks and an optional default. -->
+
+    <script>
+      let a = 2 + 2;
+
+      switch (a) {
+        case 3:
+          alert("Too small");
+          break;
+        case 4:
+          alert("Exactly!");
+          break;
+        case 5:
+          alert("Too big");
+          break;
+        default:
+          alert("I don't know such values");
+      }
+    </script>
+
+    <!-- Here the switch starts to compare a from the first case variant that is 3. The match fails.
+
+  Then 4. That’s a match, so the execution starts from case 4 until the nearest break.
+  
+  If there is no break then the execution continues with the next case without any checks.
+  
+  An example without break: -->
+
+    <script>
+      let a2 = 2 + 2;
+
+      switch (a2) {
+        case 3:
+          alert("Too small");
+        case 4:
+          alert("Exactly!");
+        case 5:
+          alert("Too big");
+        default:
+          alert("I don't know such values");
+      }
+    </script>
+
+    <!-- Any expression can be a switch/case argument -->
+
+    <!-- Both switch and case allow arbitrary expressions. -->
+
+    <script>
+      let a3 = "1";
+      let b = 0;
+
+      switch (+a3) {
+        case b + 1:
+          alert("this runs, because +a is 1, exactly equals b+1");
+          break;
+
+        default:
+          alert("this doesn't run");
+      }
+      // Here +a gives 1, that’s compared with b + 1 in case, and the corresponding code is executed.
+    </script>
+
+    <!-- Grouping of “case” -->
+
+    <!-- Several variants of case which share the same code can be grouped.
+
+  For example, if we want the same code to run for case 3 and case 5: -->
+
+    <script>
+      let a4 = 3;
+
+      switch (a4) {
+        case 4:
+          alert("Right!");
+          break;
+
+        case 3: // (*) grouped two cases
+        case 5:
+          alert("Wrong!");
+          alert("Why don't you take a math class?");
+          break;
+
+        default:
+          alert("The result is strange. Really.");
+      }
+      // Now both 3 and 5 show the same message.
+    </script>
+
+    <!-- The ability to “group” cases is a side effect of how switch/case works without break. Here the execution of case 3 starts from the line (*) and goes through case 5, because there’s no break. -->
+
+    <!-- Type matters -->
+
+    <!-- Let’s emphasize that the equality check is always strict. The values must be of the same type to match. -->
+
+    <script>
+      let arg = prompt("Enter a value?");
+      switch (arg) {
+        case "0":
+        case "1":
+          alert("One or zero");
+          break;
+
+        case "2":
+          alert("Two");
+          break;
+
+        case 3:
+          alert("Never executes!");
+          break;
+        default:
+          alert("An unknown value");
+      }
+    </script>
+
+    <!-- Rewrite the "switch" into an "if" -->
+
+    <!-- Write the code using if..else which would correspond to the following switch: -->
+
+    <script>
+      switch (browser) {
+        case "Edge":
+          alert("You've got the Edge!");
+          break;
+
+        case "Chrome":
+        case "Firefox":
+        case "Safari":
+        case "Opera":
+          alert("Okay we support these browsers too");
+          break;
+
+        default:
+          alert("We hope that this page looks ok!");
+      }
+    </script>
+  </body>
+</html>

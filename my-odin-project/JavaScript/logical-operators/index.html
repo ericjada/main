@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Logical operators</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" href=""> -->
+  </head>
+  <body>
+    <!-- <script src="" async defer></script> -->
+
+    <h1>
+      This is me following along with
+      <a href="https://javascript.info/logical-operators">this</a> article.
+    </h1>
+
+    <!-- There are four logical operators in JavaScript: || (OR), && (AND), ! (NOT), ?? (Nullish Coalescing). -->
+
+    <!-- Although they are called “logical”, they can be applied to values of any type, not only boolean.  -->
+    <!-- Their result can also be of any type. -->
+
+    <!-- The “OR” operator is represented with two vertical line symbols: -->
+
+    <!-- The logical OR is meant to manipulate boolean values only. If any of its arguments are true, it returns true, 
+    otherwise it returns false. -->
+
+    <script>
+      alert(true || true); // true
+      alert(false || true); // true
+      alert(true || false); // true
+      alert(false || false); // false
+    </script>
+
+    <!-- If an operand is not a boolean, it’s converted to a boolean for the evaluation. -->
+
+    <script>
+      if (1 || 0) {
+        // works just like if( true || false )
+        alert("truthy!");
+      }
+    </script>
+
+    <!-- OR || is used in an if statement to test if any of the given conditions is true. -->
+
+    <script>
+      let hour = 9;
+
+      if (hour < 10 || hour > 18) {
+        alert("The office is closed.");
+      }
+    </script>
+
+    <!-- more conditions -->
+
+    <script>
+      let hour2 = 12;
+      let isWeekend = true;
+
+      if (hour2 < 10 || hour2 > 18 || isWeekend) {
+        alert("The office is closed."); // it is the weekend
+      }
+    </script>
+
+    <!-- OR "||" finds the first truthy value -->
+
+    <!-- The OR || operator does the following: -->
+
+    <!-- Evaluates operands from left to right.
+  For each operand, converts it to boolean. 
+  If the result is true, stops and returns the original value of that operand.
+  If all operands have been evaluated (i.e. all were false), returns the last operand. -->
+
+    <!-- a chain of OR || returns the first truthy value or the last one if no truthy value is found. -->
+
+    <script>
+      alert(1 || 0); // 1 (1 is truthy)
+
+      alert(null || 1); // 1 (1 is the first truthy value)
+      alert(null || 0 || 1); // 1 (the first truthy value)
+
+      alert(undefined || null || 0); // 0 (all falsy, returns the last value)
+    </script>
+
+    <!-- For instance, we have firstName, lastName and nickName variables, 
+  all optional (i.e. can be undefined or have falsy values).
+
+  Let’s use OR || to choose the one that has the data and show it (or "Anonymous" if nothing set) -->
+
+    <script>
+      let firstName = "";
+      let lastName = "";
+      let nickName = "SuperCoder";
+
+      alert(firstName || lastName || nickName || "Anonymous"); // SuperCoder
+      // If all variables were falsy, "Anonymous" would show up.
+    </script>
+
+    <!-- Short-circuit evaluation. -->
+
+    <!-- Another feature of OR || operator is the so-called “short-circuit” evaluation.
+
+  It means that || processes its arguments until the first truthy value is reached, and then the value is returned immediately, without even touching the other argument.
+  
+  The importance of this feature becomes obvious if an operand isn’t just a value, but an expression with a side effect, such as a variable assignment or a function call. -->
+
+    <script>
+      true || alert("not printed");
+      false || alert("printed");
+    </script>
+
+    <!-- In the first line, the OR || operator stops the evaluation immediately upon seeing true, so the alert isn’t run.
+
+  Sometimes, people use this feature to execute commands only if the condition on the left part is falsy. -->
+
+    <!-- && (AND) -->
+
+    <!-- In classical programming, AND returns true if both operands are truthy and false otherwise: -->
+
+    <script>
+      alert(true && true); // true
+      alert(false && true); // false
+      alert(true && false); // false
+      alert(false && false); // false
+    </script>
+
+    <!-- An example with if: -->
+
+    <script>
+      let hour3 = 12;
+      let minute = 30;
+
+      if (hour3 == 12 && minute == 30) {
+        alert("The time is 12:30");
+      }
+    </script>
+
+    <!-- Just as with OR, any value is allowed as an operand of AND: -->
+
+    <script>
+      if (1 && 0) {
+        // evaluated as true && false
+        alert("won't work, because the result is falsy");
+      }
+    </script>
+
+    <!-- AND “&&” finds the first falsy value -->
+
+    <!-- The AND && operator does the following: -->
+
+    <!-- Evaluates operands from left to right.
+  For each operand, converts it to a boolean. If the result is false, stops and returns the original value of that operand.
+  If all operands have been evaluated (i.e. all were truthy), returns the last operand.
+  In other words, AND returns the first falsy value or the last value if none were found.
+  
+  The rules above are similar to OR. The difference is that AND returns the first falsy value while OR returns the first truthy one. -->
+
+    <script>
+      // if the first operand is truthy,
+      // AND returns the second operand:
+      alert(1 && 0); // 0
+      alert(1 && 5); // 5
+
+      // if the first operand is falsy,
+      // AND returns it. The second operand is ignored
+      alert(null && 5); // null
+      alert(0 && "no matter what"); // 0
+    </script>
+
+    <!-- We can also pass several values in a row. See how the first falsy one is returned: -->
+
+    <script>
+      alert(1 && 2 && null && 3); // null
+      // When all values are truthy, the last value is returned:
+      alert(1 && 2 && 3); // 3, the last one
+    </script>
+
+    <!-- "!" (NOT) -->
+
+    <!-- The boolean NOT operator is represented with an exclamation sign !. -->
+
+    <!-- The operator accepts a single argument and does the following:
+
+  Converts the operand to boolean type: true/false.
+  Returns the inverse value. -->
+
+    <script>
+      alert(!true); // false
+      alert(!0); // true
+    </script>
+
+    <!-- A double NOT !! is sometimes used for converting a value to boolean type: -->
+
+    <script>
+      alert(!!"non-empty string"); // true
+      alert(!!null); // false
+    </script>
+
+    <!-- The first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.
+
+  There’s a little more verbose way to do the same thing – a built-in Boolean function: -->
+
+    <script>
+      alert(Boolean("non-empty string")); // true
+      alert(Boolean(null)); // false
+    </script>
+
+    <!-- Tasks -->
+
+    <script>
+      alert(null || 2 || undefined); // 2
+      alert(alert(1) || 2 || alert(3)); // first 1, then 2
+      alert(1 && null && 2); // null, because it’s the first falsy value from the list.
+      alert(alert(1) && alert(2)); // 1, and then undefined
+      alert(null || (2 && 3) || 4); // 3
+    </script>
+  </body>
+</html>
