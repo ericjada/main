@@ -1,0 +1,62 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.business-card {
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+
+  /* Flexbox styles */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.business-card:hover {
+  transform: scale(1.05);
+}
+
+.business-card h1 {
+  font-size: 24px;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.business-card h2 {
+  font-size: 18px;
+  color: #777;
+  font-family: Arial, sans-serif;
+}
+
+.business-card p {
+  font-size: 14px;
+  color: #555;
+  font-family: Arial, sans-serif;
+}
+
+.profile-picture {
+  align-items: center;
+}
+
+.profile-picture img {
+  width: 100px;
+}
+
+.profile-picture:hover {
+  transform: scale(1.05);
+}
+
+.intro {
+  font-size: 14px;
+  color: #555;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
